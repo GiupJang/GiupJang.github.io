@@ -1,0 +1,310 @@
+---
+---
+
+// ======================
+// Variable Overrides
+// ======================
+
+// Colors
+$background-color: #ffffff;
+$text-color: #1a1a1a;
+$primary-color: #333333;
+$border-color: #e5e5e5;
+$footer-background-color: #fafafa;
+$link-color: #1a1a1a;
+$link-color-hover: #555555;
+$link-color-visited: #1a1a1a;
+$masthead-link-color: #1a1a1a;
+$masthead-link-color-hover: #555555;
+$code-background-color: #f5f5f5;
+$code-background-color-dark: #e5e5e5;
+$info-color: #555555;
+$focus-color: #333333;
+
+// Typography
+$sans-serif: 'Inter', -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Malgun Gothic', 'Noto Sans KR', sans-serif;
+$global-font-family: $sans-serif;
+$header-font-family: $sans-serif;
+$caption-font-family: $sans-serif;
+$monospace: 'SF Mono', 'Fira Code', 'Roboto Mono', monospace;
+
+// Type scale
+$h-size-1: 1.75em;
+$h-size-2: 1.375em;
+$h-size-3: 1.125em;
+$h-size-4: 1em;
+$type-size-6: 0.8em;
+
+// Layout
+$border-radius: 0px;
+$box-shadow: none;
+
+// Syntax highlighting (monochrome)
+$base00: #1a1a1a;
+$base01: #2d2d2d;
+$base02: #444444;
+$base03: #666666;
+$base04: #999999;
+$base05: #cccccc;
+$base06: #e5e5e5;
+$base07: #ffffff;
+$base08: #cc6666;
+$base09: #de935f;
+$base0a: #f0c674;
+$base0b: #7c9a5e;
+$base0c: #78a8b5;
+$base0d: #6b8eb5;
+$base0e: #9e7bb5;
+$base0f: #a3685a;
+
+// ======================
+// Theme Imports
+// ======================
+
+@import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}";
+@import "minimal-mistakes";
+
+// ======================
+// Custom CSS Overrides
+// ======================
+
+// Global
+body {
+  letter-spacing: -0.011em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+::selection {
+  background: #1a1a1a;
+  color: #ffffff;
+}
+
+hr {
+  border-top: 1px solid #e5e5e5;
+  margin: 2.5em 0;
+}
+
+// Masthead
+.masthead {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.greedy-nav {
+  background: #ffffff;
+
+  .visible-links {
+    a {
+      font-weight: 400;
+      text-transform: uppercase;
+      font-size: 0.75em;
+      letter-spacing: 0.1em;
+
+      &:before {
+        background: #1a1a1a;
+        height: 2px;
+      }
+    }
+  }
+}
+
+.site-title {
+  font-weight: 700;
+  font-size: 1em;
+  letter-spacing: -0.02em;
+  text-transform: none;
+}
+
+// Page content
+.page__content {
+  h2 {
+    border-bottom: 1px solid #e5e5e5;
+    padding-bottom: 0.5em;
+  }
+
+  p, li, dl {
+    line-height: 1.8;
+  }
+
+  a:not(.btn) {
+    text-decoration: underline;
+    text-decoration-color: #cccccc;
+    text-underline-offset: 0.15em;
+
+    &:hover {
+      text-decoration-color: #1a1a1a;
+    }
+  }
+
+  blockquote {
+    border-inline-start: 2px solid #cccccc;
+    color: #555555;
+    font-style: normal;
+  }
+}
+
+// Page title
+.page__title {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+// Page meta
+.page__meta {
+  font-size: 0.8em;
+  color: #999999;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+// Archive / Post lists
+.archive__item-title {
+  font-weight: 600;
+  font-size: 1.1em;
+
+  a {
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+      text-decoration-color: #cccccc;
+      text-underline-offset: 0.15em;
+    }
+  }
+}
+
+.archive__item-excerpt {
+  color: #666666;
+  font-size: 0.85em;
+  line-height: 1.6;
+}
+
+.archive__subtitle {
+  font-weight: 600;
+  font-size: 0.8em;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #999999;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.list__item {
+  padding-bottom: 1.5em;
+  margin-bottom: 1.5em;
+  border-bottom: 1px solid #f0f0f0;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+// Footer
+.page__footer {
+  background-color: #fafafa;
+  border-top: 1px solid #e5e5e5;
+  margin-top: 4em;
+  color: #999999;
+
+  a {
+    color: #666666;
+
+    &:hover {
+      color: #1a1a1a;
+    }
+  }
+}
+
+.page__footer-copyright {
+  font-size: 0.7em;
+  color: #bbbbbb;
+}
+
+// Tables
+table {
+  font-size: 0.85em;
+}
+
+thead {
+  background-color: #fafafa;
+  border-bottom: 2px solid #e5e5e5;
+}
+
+td {
+  border-bottom: 1px solid #f0f0f0;
+}
+
+// Tags
+.page__taxonomy-item {
+  border: 1px solid #e5e5e5;
+  border-radius: 0;
+  padding: 4px 10px;
+  font-size: 0.75em;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #666666;
+
+  &:hover {
+    color: #1a1a1a;
+    border-color: #1a1a1a;
+  }
+}
+
+// TOC
+.toc {
+  border: 1px solid #e5e5e5;
+  border-radius: 0;
+  box-shadow: none;
+
+  .nav__title {
+    background: #1a1a1a;
+    font-size: 0.7em;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    border-radius: 0;
+  }
+}
+
+// Pagination
+.pagination--pager {
+  border: 1px solid #e5e5e5;
+  border-radius: 0;
+  color: #666666;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.85em;
+}
+
+// Related posts
+.page__related {
+  border-top: 1px solid #e5e5e5;
+}
+
+.page__related-title {
+  font-size: 0.75em;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #999999;
+}
+
+// Buttons
+.btn {
+  border-radius: 0;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+// Wide layout override
+.wide .page,
+.wide .page__related,
+.wide .archive {
+  float: none;
+  width: 100%;
+}
