@@ -1,0 +1,82 @@
+{% capture logo_path %}{{ site.logo }}{% endcapture %}
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        {% unless logo_path == empty %}
+          <a class="site-logo" href="{{ '/' | relative_url }}"><img src="{{ logo_path | relative_url }}" alt="{{ site.masthead_title | default: site.title }}"></a>
+        {% endunless %}
+        <a class="site-title" href="{{ '/' | relative_url }}">
+          {{ site.masthead_title | default: site.title | escape_once | strip }}
+          {% if site.subtitle %}<span class="site-subtitle">{{ site.subtitle | escape_once | strip }}</span>{% endif %}
+        </a>
+        <button class="hamburger-menu" type="button" aria-label="메뉴 열기" aria-expanded="false">
+          <span class="hamburger-menu__line"></span>
+          <span class="hamburger-menu__line"></span>
+          <span class="hamburger-menu__line"></span>
+        </button>
+      </nav>
+    </div>
+  </div>
+</div>
+
+<div class="nav-overlay" aria-hidden="true">
+  <div class="nav-overlay__panel">
+    <button class="nav-overlay__close" type="button" aria-label="메뉴 닫기">&times;</button>
+    <ul class="nav-overlay__links">
+      {%- for link in site.data.navigation.main -%}
+        <li>
+          <a href="{{ link.url | relative_url }}"
+            {% if link.description %} title="{{ link.description }}"{% endif %}
+            {% if link.target %} target="{{ link.target }}"{% endif %}
+          >{{ link.title }}</a>
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</div>
+
+<script>
+(function() {
+  var btn = document.querySelector('.hamburger-menu');
+  var overlay = document.querySelector('.nav-overlay');
+  var closeBtn = document.querySelector('.nav-overlay__close');
+
+  function openMenu() {
+    btn.classList.add('is-active');
+    btn.setAttribute('aria-expanded', 'true');
+    overlay.classList.add('is-visible');
+    overlay.setAttribute('aria-hidden', 'false');
+  }
+
+  function closeMenu() {
+    btn.classList.remove('is-active');
+    btn.setAttribute('aria-expanded', 'false');
+    overlay.classList.remove('is-visible');
+    overlay.setAttribute('aria-hidden', 'true');
+  }
+
+  btn.addEventListener('click', function() {
+    if (overlay.classList.contains('is-visible')) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
+  });
+
+  closeBtn.addEventListener('click', closeMenu);
+
+  overlay.addEventListener('click', function(e) {
+    if (e.target === overlay) {
+      closeMenu();
+    }
+  });
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && overlay.classList.contains('is-visible')) {
+      closeMenu();
+    }
+  });
+})();
+</script>
