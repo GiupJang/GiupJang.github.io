@@ -41,6 +41,12 @@ permalink: /:categories/:title/
 markdown: kramdown
 lang: ko
 
+analytics:
+  provider: "google-gtag"
+  google:
+    tracking_id: "G-E6L7XEKH2S"
+    anonymize_ip: false
+
 atom_feed:
   hide: true
 
