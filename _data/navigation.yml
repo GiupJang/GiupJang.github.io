@@ -1,3 +1,5 @@
 main:
   - title: "Paper"
     url: /categories/paper/
+  - title: "AWS"
+    url: /categories/aws/
