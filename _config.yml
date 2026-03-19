@@ -20,10 +20,8 @@
 
 title: Karl's Knowledge Repository
 email: your-email@example.com
-description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+description: >-
+  수의학·생명과학 논문 리뷰, AWS 클라우드 학습 노트, 반려동물 산업 동향 보고서를 다루는 지식 저장소입니다.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://giupjang.github.io"
 github_username:  giupjang
@@ -39,7 +37,7 @@ plugins:
 
 permalink: /:categories/:title/
 markdown: kramdown
-lang: ko
+locale: "ko-KR"
 
 analytics:
   provider: "google-gtag"
