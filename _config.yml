@@ -35,6 +35,8 @@ plugins:
   - jekyll-paginate
   - jekyll-include-cache
 
+paginate: 10
+
 permalink: /:categories/:title/
 markdown: kramdown
 locale: "ko-KR"

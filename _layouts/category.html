@@ -7,6 +7,48 @@ layout: archive
 <h3 class="archive__subtitle">{{ page.taxonomy }}</h3>
 
 {% assign entries_layout = page.entries_layout | default: 'list' %}
-<div class="entries-{{ entries_layout }}">
+<div id="category-posts" class="entries-{{ entries_layout }}">
   {% include posts-category.html taxonomy=page.taxonomy type=entries_layout %}
 </div>
+
+<nav id="category-pagination" class="pagination" style="display:none; justify-content:center; margin-top:2em; gap:0.5em;">
+</nav>
+
+<script>
+(function() {
+  var perPage = 10;
+  var container = document.getElementById('category-posts');
+  var nav = document.getElementById('category-pagination');
+  var items = Array.from(container.children);
+  var totalPages = Math.ceil(items.length / perPage);
+
+  if (totalPages <= 1) return;
+
+  function showPage(page) {
+    items.forEach(function(el, i) {
+      el.style.display = (i >= (page - 1) * perPage && i < page * perPage) ? '' : 'none';
+    });
+    renderNav(page);
+    window.scrollTo({ top: container.offsetTop - 20, behavior: 'smooth' });
+  }
+
+  function renderNav(current) {
+    nav.style.display = 'flex';
+    nav.innerHTML = '';
+    for (var p = 1; p <= totalPages; p++) {
+      var btn = document.createElement('a');
+      btn.href = '#';
+      btn.textContent = p;
+      btn.className = 'page-link' + (p === current ? ' current' : '');
+      btn.style.cssText = 'padding:0.4em 0.8em; border:1px solid #ddd; border-radius:4px; text-decoration:none;';
+      if (p === current) btn.style.cssText += 'font-weight:bold; background:#494e52; color:#fff;';
+      (function(page) {
+        btn.addEventListener('click', function(e) { e.preventDefault(); showPage(page); });
+      })(p);
+      nav.appendChild(btn);
+    }
+  }
+
+  showPage(1);
+})();
+</script>
