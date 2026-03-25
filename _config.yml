@@ -32,10 +32,7 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-sitemap
-  - jekyll-paginate
   - jekyll-include-cache
-
-paginate: 10
 
 permalink: /:categories/:title/
 markdown: kramdown
