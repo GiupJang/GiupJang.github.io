@@ -45,7 +45,7 @@ analytics:
     anonymize_ip: false
 
 atom_feed:
-  hide: true
+  hide: false
 
 # Exclude from processing.
 # The following items will not be processed, by default.
